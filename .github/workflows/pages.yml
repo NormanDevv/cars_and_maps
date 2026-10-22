@@ -1,0 +1,34 @@
+# Publica guatemala-3d/ en GitHub Pages cada vez que cambia en master.
+name: Publicar Guatemala 3D
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'guatemala-3d/**'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: guatemala-3d
+      - id: deployment
+        uses: actions/deploy-pages@v4
