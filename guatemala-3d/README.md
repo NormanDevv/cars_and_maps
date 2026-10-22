@@ -50,3 +50,11 @@ Para regenerar los datos:
 ```bash
 node tools/build-data.mjs geoBoundaries-GTM-ADM1_simplified.geojson geoBoundaries-GTM-ADM2_simplified.geojson
 ```
+
+## Publicación en línea (GitHub Pages)
+
+El workflow `.github/workflows/pages.yml` publica esta carpeta en GitHub Pages
+cada vez que cambia en `master` (también se puede lanzar a mano desde la
+pestaña **Actions**). Requisito único: en **Settings → Pages**, elegir
+**Source: GitHub Actions**. La web queda en
+`https://<usuario>.github.io/cars_and_maps/`.
