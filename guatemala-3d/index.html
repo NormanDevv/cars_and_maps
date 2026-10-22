@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Guatemala 3D</title>
+	<meta name="description" content="Mapa 3D interactivo de Guatemala: departamentos y municipios.">
+	<link rel="icon" href="data:,">
+	<link rel="stylesheet" href="css/styles.css">
+	<script type="importmap">
+		{
+			"imports": {
+				"three": "./vendor/three.module.min.js",
+				"three/addons/": "./vendor/addons/"
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="scene"></div>
+
+	<aside id="panel" class="panel">
+		<header class="panel__head">
+			<p class="eyebrow">República de</p>
+			<h1>Guatemala <span>3D</span></h1>
+			<nav class="crumbs" aria-label="Ubicación">
+				<button id="crumb-home" type="button">Guatemala</button>
+				<span id="crumb-sep" hidden>›</span>
+				<span id="crumb-dep" hidden></span>
+			</nav>
+		</header>
+
+		<section id="summary" class="summary"></section>
+
+		<div class="search">
+			<input id="search" type="search" placeholder="Buscar departamento…" autocomplete="off" aria-label="Buscar">
+		</div>
+
+		<ul id="list" class="list"></ul>
+
+		<footer class="panel__foot">
+			<label class="toggle"><input id="toggle-labels" type="checkbox" checked> Mostrar nombres</label>
+			<span class="hint">Arrastra para girar · rueda para acercar</span>
+		</footer>
+	</aside>
+
+	<button id="back" class="back" type="button" hidden>← Volver a Guatemala</button>
+	<button id="panel-toggle" class="panel-toggle" type="button" aria-controls="panel">Lista</button>
+
+	<div id="tooltip" class="tooltip" hidden></div>
+	<div id="loading" class="loading">Cargando mapa…</div>
+
+	<p class="credit">Límites: <a href="https://www.geoboundaries.org" target="_blank" rel="noopener">geoBoundaries</a> (CC BY 4.0)</p>
+
+	<script type="module" src="js/main.js"></script>
+</body>
+</html>
